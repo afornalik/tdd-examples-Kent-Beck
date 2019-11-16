@@ -9,6 +9,12 @@ import static org.junit.Assert.*;
 public class DollarTest {
 
     @Test
+    public void testCurrency() {
+        assertEquals("USD",Money.dollar(1).currency());
+        assertEquals("CHF",Money.franc(1).currency());
+    }
+
+    @Test
     public void testMultiplication() {
         Money five = Money.dollar(5);
         assertEquals(Money.dollar(10),five.times(2));
