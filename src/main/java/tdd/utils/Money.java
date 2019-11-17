@@ -44,5 +44,9 @@ public class Money implements Expression {
                 ", amount=" + amount +
                 '}';
     }
+
+    public Money reduce(String to){
+        return this;
+    }
 }
 
