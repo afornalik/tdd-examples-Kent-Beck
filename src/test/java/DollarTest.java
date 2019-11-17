@@ -1,6 +1,8 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import tdd.utils.Bank;
+import tdd.utils.Expression;
 import tdd.utils.Money;
 
 import static org.junit.Assert.*;
@@ -28,5 +30,14 @@ public class DollarTest {
         assertTrue(Money.dollar(5).equals(Money.dollar(5)));
         assertFalse(Money.dollar(5).equals(Money.dollar(6)));
         assertFalse(Money.franc(5).equals(Money.dollar(5)));
+    }
+
+    @Test
+    public void testSimpleAddition(){
+        Money five = Money.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Money reduce = bank.reduce(sum,"USD");
+        assertEquals(Money.dollar(10),reduce);
     }
 }
